@@ -3,10 +3,14 @@ $color-main: #ac2626;
 .post-card {
     background-color: #ffffff; 
     border-radius: 8px; 
+    border-right: 5px solid $color-main;
+    border-bottom: 5px solid $color-main;
+    border-left: 1px solid $color-main;
+    border-top: 1px solid $color-main;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); 
     padding: 20px; 
     margin: 20px auto; 
-    max-width: 700px; 
+    max-width: 450px; 
     font-family: 'Arial', sans-serif;
     transition: transform 0.3s ease, box-shadow 0.3s ease; 
 
@@ -53,14 +57,14 @@ $color-main: #ac2626;
 
     input[type="textarea"] {
         width: 100%;  
-        padding: 10px;  
+        padding: 5px;  
         border: 1px solid #ddd;  
         border-radius: 6px;  
         font-size: 1em;  
         color: #333;  
         background-color: #f9f9f9;  
-        resize: vertical;  
-        min-height: 100px;  
+        resize: both;
+        min-height: 50px;  
         transition: border-color 0.3s ease, box-shadow 0.3s ease;  
 
         &:focus {
@@ -68,6 +72,15 @@ $color-main: #ac2626;
             box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);  
             outline: none;  
         }
+    }
+
+    .post__comment {
+        max-width: 100%;
+        height: fit-content;
+        padding: 5px 3px;
+        background-color: rgb(233, 217, 217);
+        border-radius: 2px;
+        word-wrap: break-word;
     }
 
     button {
