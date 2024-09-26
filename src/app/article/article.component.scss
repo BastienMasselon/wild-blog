@@ -75,9 +75,10 @@ $color-main: #ac2626;
     }
 
     .post__comment {
+        color: black;
         max-width: 100%;
         height: fit-content;
-        padding: 5px 3px;
+        padding: 5px;
         background-color: rgb(233, 217, 217);
         border-radius: 2px;
         word-wrap: break-word;
