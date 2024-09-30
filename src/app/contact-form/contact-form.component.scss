@@ -1,0 +1,116 @@
+$color-main: #ac2626;
+
+.contact-form {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 40px;
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    fieldset {
+      border: none;
+
+      label {
+        display: block;
+        font-size: 1rem;
+        color: $color-main;
+        font-weight: bold;
+        margin-bottom: 8px;
+      }
+
+      input,
+      textarea {
+        width: 100%;
+        padding: 10px 15px;
+        font-size: 1rem;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        transition: border-color 0.3s ease;
+
+        &:focus {
+          border-color: $color-main;
+          outline: none;
+        }
+      }
+
+      textarea {
+        resize: vertical;
+        height: 120px;
+      }
+    }
+
+    .contact-name {
+      display: flex;
+      gap: 20px;
+
+      fieldset {
+        flex: 1;
+      }
+    }
+
+    // Gestion des messages d'erreurs
+    .contact-error {
+      margin-top: 5px;
+      font-size: 0.9rem;
+
+      span {
+        color: lighten($color-main, 20%);
+      }
+    }
+
+    // Message de succès et d'échec
+    .contact-success,
+    .contact-fail {
+      padding: 15px;
+      border-radius: 2px;
+      font-size: 1rem;
+      text-align: center;
+
+      &.contact-success {
+        background-color: #d4edda;
+        color: #155724;
+        border: 1px solid #c3e6cb;
+      }
+
+      &.contact-fail {
+        background-color: #f8d7da;
+        color: #721c24;
+        border: 1px solid #f5c6cb;
+      }
+    }
+
+    // Style des boutons
+    button {
+      padding: 12px 20px;
+      border: none;
+      border-radius: 2px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+
+      &:first-of-type {
+        background-color: #e0e0e0;
+        color: $color-main;
+
+        &:hover {
+          background-color: #d5d5d5;
+        }
+      }
+
+      &:last-of-type {
+        background-color: $color-main;
+        color: #fff;
+
+        &:hover {
+          background-color: darken($color-main, 10%);
+        }
+      }
+    }
+  }
+}
