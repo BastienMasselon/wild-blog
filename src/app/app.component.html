@@ -1,22 +1,8 @@
+<header>HEADER</header>
 
 <main>
-  <h1>Bienvenue sur le blog de Bastos 🕺</h1>
-  <!-- <app-article></app-article> -->
-
-  @for (article of articles; track $index) {
-    @if (article.isPublished) {
-      <div [ngClass]="{'popular-article': article.likes > 100}">
-        <h3 [ngStyle]="{'color': article.likes > 150 ? '#228133' : 'black'}">{{ article.title }}</h3>
-        <p>{{ article.author }}</p>
-        <p>{{article.content}}</p>
-        <img src="{{article.image}}" alt="">
-        <p>{{article.comment}}</p>
-        <p>{{article.likes}} 💙</p>
-      </div>
-    }
-  } @empty {
-    <p>Aucun article publié pour le moment</p>
-  }
+  <router-outlet />
 </main>
 
-<router-outlet />
+<footer>FOOTER</footer>
+

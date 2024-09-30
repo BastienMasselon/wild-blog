@@ -1,0 +1,18 @@
+$color-main: #ac2626; 
+
+.not-found {
+    font-size: 3rem; 
+    text-align: center;
+    width: 800px;
+    margin: 0 auto;
+
+    p {
+        font-size: 1.5em;
+
+        span {
+            color: $color-main;
+            font-size: 2em;
+            font-weight: 700;
+        }
+    }
+}
