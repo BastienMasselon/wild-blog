@@ -1,0 +1,137 @@
+$color-main: #ac2626;
+$color-text-light: #fff;
+$color-bg-dark: #333;
+$burger-size: 35px; // Augmenté pour un meilleur rendu de la croix
+$burger-bar-thickness: 3px; // Plus épais pour rendre les barres plus visibles
+$burger-bar-spacing: 6px;
+
+// Reset de base
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+header {
+  background-color: $color-main;
+  color: $color-text-light;
+  height: 50px;
+  font-family: 'Times New Roman', Times, serif;
+
+  div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+  }
+
+  // Navigation styling for large screens
+  nav {
+    list-style: none;
+    display: flex; // Ensure it's a flexbox for large screens
+    justify-content: space-around;
+    width: 768px;
+    height: 100%;
+    margin: 0 auto;
+
+    li {
+      display: inline-block;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      a {
+        color: $color-text-light;
+        text-decoration: none;
+        font-size: 1.1rem;
+        font-weight: 500;
+        padding: 10px;
+        transition: color 0.3s ease, background-color 0.3s ease;
+        height: 100%;
+        width: 100%;
+
+        &:hover {
+          background-color: lighten($color-main, 10%);
+        }
+      }
+    }
+  }
+
+  // Burger Menu Styling
+  .burger {
+    display: none; // Hidden by default on large screens
+    position: relative;
+    width: $burger-size;
+    height: $burger-size;
+    cursor: pointer;
+    margin-left: 10px;
+
+    div {
+      background-color: $color-text-light;
+      height: $burger-bar-thickness;
+      margin: $burger-bar-spacing 0;
+      width: 100%; // Full width for a longer burger
+      transition: all 0.4s ease;
+      border-radius: 4px;
+    }
+  }
+
+  // Menu opened on small screens
+  .nav-open {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: absolute;
+    width: 100%;
+    top: 50px;
+    left: 0;
+    right: 0;
+    height: fit-content;
+    background-color: $color-bg-dark;
+    border-top: 2px solid lighten($color-main, 15%);
+
+    li {
+        text-align: center;
+        width: 100%;
+        height: fit-content;
+        margin: 0;
+
+      a {
+        color: $color-text-light;
+        font-size: 1.5rem;
+        height: 100%;
+
+        &:hover {
+          background-color: lighten($color-main, 10%);
+        }
+      }
+    }
+  }
+
+  // Responsive for smaller screens
+  @media screen and (max-width: 768px) {
+    nav {
+      display: none; // Hide the nav completely by default on small screens
+    }
+
+    .burger {
+      display: block; // Show burger menu button
+    }
+
+    // Transform burger into a cross (X) when active
+    .burger-active div:nth-child(1) {
+      transform: rotate(45deg) translate(6px, 6px);
+    }
+
+    .burger-active div:nth-child(2) {
+      opacity: 0; // Hide the middle bar
+    }
+
+    .burger-active div:nth-child(3) {
+      transform: rotate(-45deg) translate(6px, -6px);
+    }
+  }
+}

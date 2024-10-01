@@ -1,17 +1,17 @@
 $color-main: #ac2626; // Couleur principale (rouge)
 $color-secondary: #2626ac; // Couleur complémentaire (bleu)
-$color-bg-light: #f1f1f1; // Couleur de fond claire
+$color-bg-light: #dfd7d7cf; // Couleur de fond claire
 $color-error: #d9534f; // Rouge pour les erreurs
 $color-text: #333; // Couleur de texte principale
 
 form {
   max-width: 600px;
   margin: 0 auto;
+  margin-top: 30px;
   padding: 50px;
   background-color: $color-bg-light;
   border-radius: 15px;
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-  font-family: 'Roboto', sans-serif;
+  box-shadow: 0 0px 20px rgba(0, 0, 0, 0.2);
 
   fieldset {
     border: none;
