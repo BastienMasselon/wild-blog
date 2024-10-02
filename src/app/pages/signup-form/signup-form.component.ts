@@ -1,6 +1,6 @@
 import { Component, inject } from '@angular/core';
 import { AbstractControl, FormBuilder, ReactiveFormsModule, ValidationErrors, ValidatorFn, Validators } from '@angular/forms';
-import { passwordMatchValidator, securePasswordValidator } from '../../validators/validators';
+import { passwordMatchValidator, securePasswordValidator } from '../../../validators/validators';
 
 @Component({
   selector: 'app-signup-form',

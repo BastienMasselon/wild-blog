@@ -9,10 +9,12 @@
         <label for="comment">Commenter :</label>
         <input [(ngModel)]='article.comment' type="textarea"  contenteditable name="comment">
     </div>
-    @if (article.comment !== '') {
+    @if (article.comment && article.comment !== '') {
         <p class="post__comment">{{ article.comment }}</p>
     }
     <button (click)="togglePublication()">
         {{article.isPublished ? 'Dépublier' : 'Publier'}}
     </button>
+    <p>{{article.likes}} 💙</p>
+    <a [routerLink]="['article',article.id]">Voir l'article</a>
 </div>
