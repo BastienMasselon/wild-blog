@@ -4,6 +4,7 @@ import { ArticlePageComponent } from './pages/article-page/article-page.componen
 import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { SignupFormComponent } from './pages/signup-form/signup-form.component';
 import { ContactFormComponent } from './pages/contact-form/contact-form.component';
+import { LoginFormComponent } from './pages/login-form/login-form.component';
 
 export const routes: Routes = [
     
@@ -18,6 +19,10 @@ export const routes: Routes = [
     {
         path: 'signup',
         component: SignupFormComponent
+    },
+    {
+        path: 'login',
+        component: LoginFormComponent
     },
     {
         path: '',

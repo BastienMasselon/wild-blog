@@ -1,0 +1,158 @@
+$color-main: #ac2626; // Main color utilisée dans les autres formulaires
+$color-secondary: #f5f5f5; // Couleur de fond douce
+$color-border: lighten($color-main, 20%);
+$color-bg-dark: #333;
+$color-error: #e63946;
+$color-success: #2a9d8f;
+$color-text-light: #fff;
+$color-button-hover: darken($color-main, 10%);
+$border-radius: 8px; // Angles arrondis pour les inputs et boutons
+
+// Reset global pour assurer la cohérence
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+form {
+  background-color: $color-secondary;
+  padding: 40px;
+  max-width: 400px;
+  margin: 50px auto;
+  border: 1px solid $color-border;
+  border-radius: $border-radius;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  font-family: 'Arial', sans-serif;
+
+  fieldset {
+    border: none;
+    margin-bottom: 20px;
+
+    label {
+      display: block;
+      margin-bottom: 10px;
+      font-size: 1.1rem;
+      font-weight: bold;
+      color: $color-main;
+      text-align: left;
+    }
+
+    input {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid $color-border;
+      border-radius: $border-radius;
+      font-size: 1rem;
+      transition: all 0.3s ease;
+      outline: none;
+
+      &:focus {
+        border-color: $color-main;
+        box-shadow: 0 0 6px lighten($color-bg-dark, 20%);
+      }
+
+        &.ng-valid {
+            border: 1px solid rgb(45, 136, 45);
+            box-shadow: 0 0 5px  rgb(45, 136, 45);
+        }
+
+        // &.ng-invalid {
+        //     border: 1px solid rgb(158, 54, 28);
+        //     box-shadow: 0 0 5px  rgb(151, 77, 42);
+        // }
+    }
+
+    
+  }
+
+  // Gestion des messages d'erreur
+  .login-error {
+    font-size: 0.9rem;
+    padding: 5px;
+    margin-top: 5px;
+    text-align: start;
+
+    span {
+        color: $color-error;
+    }
+  }
+
+  // Messages de validation réussie et d'échec
+  .login-success,
+  .login-fail {
+    padding: 15px;
+    margin-bottom: 15px;
+    border-radius: $border-radius;
+    font-size: 1rem;
+
+    &.login-success {
+      background-color: lighten($color-success, 40%);
+      color: $color-success;
+    }
+
+    &.login-fail {
+      background-color: lighten($color-error, 40%);
+      color: $color-error;
+    }
+  }
+
+  button {
+    display: inline-block;
+    width: 100%;
+    padding: 12px;
+    font-size: 1.1rem;
+    color: $color-text-light;
+    background-color: $color-main;
+    border: none;
+    border-radius: $border-radius;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+
+    &:hover {
+      background-color: $color-button-hover;
+      transform: translateY(-2px);
+    }
+
+    &:disabled {
+      background-color: lighten($color-main, 20%);
+      cursor: not-allowed;
+    }
+  }
+}
+
+// Animation subtile pour l'apparition des messages
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.login-error, .login-success, .login-fail {
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+// Responsive pour petits écrans
+@media (max-width: 768px) {
+  form {
+    padding: 20px;
+  }
+
+  fieldset {
+    input {
+      font-size: 0.95rem;
+      padding: 10px;
+    }
+  }
+
+  button {
+    font-size: 1rem;
+    padding: 10px;
+  }
+}

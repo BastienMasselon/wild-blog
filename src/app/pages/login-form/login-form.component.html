@@ -1,0 +1,63 @@
+<div>
+    <form 
+        (ngSubmit)="loginForm.valid && loginUser()"
+        #loginForm="ngForm"
+    >
+    @if (loginForm.submitted && loginForm.invalid) {
+        <div class="login-fail">
+            le formulaire n'est pas valide, veuillez vérifier les informations renseignées.
+        </div>
+    }
+    @if (loginForm.submitted && loginForm.valid) {
+        <div class="login-success">
+            Login validé
+        </div>
+    }
+        <fieldset>
+            <label for="email">Email</label>
+            <input 
+                id="email"
+                name="test"
+                type="email"
+                [(ngModel)]="login.email"
+                #email="ngModel"
+                required
+                email
+            />
+            @if ((loginForm.submitted || email.touched) && email.errors) {
+                <div class="login-error">
+                    @if (email.errors['required']) {
+                        <span>L'email est requis</span>
+                    }
+                    @if (email.errors['email']) {
+                        <span>L'email est invalide</span>
+                    }
+                </div>
+            }
+        </fieldset>
+        <fieldset>
+            <label for="">Mot de passe</label>
+            <input 
+                id="password"
+                name="password"
+                type="password"
+                [(ngModel)]="login.password"
+                #password="ngModel"
+                required
+                minlength="8"
+            >
+            @if ((loginForm.submitted || password.touched) && password.errors) {
+                <div class="login-error">
+                    @if (password.errors['required']) {
+                        <span>Le mot de passe est requis</span>
+                    }
+                    @if (password.errors['minlength']) {
+                        <span>Le mot de passe doit comporter au moins 8 caractères</span>
+                    }
+                </div>
+            }
+        </fieldset>
+
+        <button type="submit" [disabled]="loginForm.invalid">Se connecter</button>
+    </form>
+</div>
