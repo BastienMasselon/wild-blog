@@ -3,7 +3,7 @@
 
 @for (article of articles; track $index) {
     @if (article.isPublished) {
-        <div class="post-card">
+        <!-- <div class="post-card">
             <h2>{{ article.title }}</h2>
             <img [src]="article.image" alt="">
             @if (article.isPublished) {
@@ -19,7 +19,8 @@
             }
             <p>{{article.likes}} 💙</p>
             <a [routerLink]="['article',article.id]">Voir l'article</a>
-        </div>
+        </div> -->
+        <app-article [article]="article" ></app-article>
     }
 } @empty {
     <p>Aucun article publié pour le moment</p>
