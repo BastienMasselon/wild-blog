@@ -112,6 +112,30 @@ $color-main: #ac2626;
         }
     }
 
+    .post__footer {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
+
+        .post__like-btn {
+            padding: 5px 5px;
+            margin-bottom: 0px;
+            width: 30px;
+            height: 30px;
+            background-color: lighten($color-main, 40%);
+
+            &.liked {
+                transition: background-color 0.3s ease;
+                background-color: $color-main;
+                box-shadow: 0px 0px 10px lighten($color-main, 20%);
+            }
+
+            &:hover {
+                background-color: #6b1033; 
+            }
+        }
+    }
+
     a {
         color: $color-main;
         font-weight: 700;
