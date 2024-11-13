@@ -1,0 +1,124 @@
+$color-main: #ac2626; 
+
+.post-container {
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    margin: 20px auto;
+    max-width: 800px;
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    color: #333;
+    
+    p {
+        font-size: 1.1em;
+        margin-bottom: 20px;
+        color: #555;
+    }
+    
+    h2 {
+        font-size: 2.5em;
+        margin-bottom: 10px;
+        color: #222;
+    }
+
+    .post__category {
+        font-size: 0.8em;
+        text-transform: uppercase;
+        padding: 5px 10px;
+        border-radius: 4px;
+        display: inline-block;
+        background-color: #6b1033;
+        
+        p {
+            color: #cbc5c5;
+            margin-bottom: 0;
+        }
+    }
+
+    img {
+        width: 100%;
+        border-radius: 8px;
+        margin: 20px 0;
+    }
+
+
+    .post__comment {
+        font-style: italic;
+        color: #666;
+        margin-top: 10px;
+        padding: 10px;
+        background-color: #f9f9f9;
+        border-left: 4px solid #007BFF;
+    }
+
+    label {
+        font-weight: bold;
+        display: block;
+        margin-bottom: 5px;
+    }
+
+    input[type="textarea"] {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ddd;
+        border-radius: 6px;
+        font-size: 1em;
+        color: #333;
+        background-color: #f9f9f9;
+        resize: vertical;
+        min-height: 100px;
+        margin-bottom: 20px;
+        transition: border-color 0.3s ease, box-shadow 0.3s ease;
+
+        &:focus {
+            border-color: #007BFF;
+            box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+            outline: none;
+        }
+    }
+
+    button {
+        background-color: #964a4a;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 6px;
+        cursor: pointer;
+        font-size: 1em;
+        transition: background-color 0.3s ease;
+
+        &:hover {
+            background-color: #AC2626;
+        }
+    }
+
+    .post__footer {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 20px;
+
+        .post__like-btn {
+            padding: 5px 5px;
+            margin-bottom: 0px;
+            width: 40px;
+            height: 40px;
+            background-color: lighten($color-main, 40%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            &.liked {
+                transition: background-color 0.3s ease;
+                background-color: $color-main;
+                box-shadow: 0px 0px 10px lighten($color-main, 20%);
+            }
+
+            &:hover {
+                background-color: #6b1033; 
+            }
+        }
+    }
+}

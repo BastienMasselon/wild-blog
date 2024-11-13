@@ -58,7 +58,21 @@ $color-main: #ac2626;
     }
 
     div {
-        margin-bottom: 20px;
+        margin-bottom: 10px;
+    }
+
+    .post__category {
+        font-size: 0.7em;
+        text-transform: uppercase;
+        padding: 5px 10px;
+        border-radius: 4px;
+        display: inline-block;
+        background-color: #6b1033;
+        
+        p {
+            color: #cbc5c5;
+            margin-bottom: 0;
+        }
     }
 
     label {

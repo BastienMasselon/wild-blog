@@ -1,10 +1,13 @@
 <div class="post-card">
+    <div class="post__category">
+        <p>{{ article.categoryName }}</p>
+    </div>
     <h2>{{ article.title }}</h2>
     <img [src]="article.image" alt="">
     @if (article.isPublished) {
         <p>{{ article.content }}</p>
     }
-    <p class="post-card_author">écrit par {{ article.author }}</p>
+    <!-- <p class="post-card_author">écrit par {{ article.author }}</p> -->
     
     <div>
         <label for="comment">Commenter :</label>
@@ -16,7 +19,7 @@
     <button (click)="togglePublication()">
         {{article.isPublished ? 'Dépublier' : 'Publier'}}
     </button>
-    <p>{{article.likes}} 💙</p>
+    <p>{{article.likeCount}} 💙</p>
 
     <div class="post__footer">
         <a [routerLink]="['article',article.id]">Voir l'article</a>

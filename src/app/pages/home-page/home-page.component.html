@@ -1,11 +1,3 @@
 <h1>Bienvenue sur le blog de Bastos 🕺</h1>
 
-<p [hidden]="likedArticle === undefined" >article n°{{likedArticle}} liké</p>
-
-@for (article of articles; track article.id) {
-    @if (article.isPublished) {
-        <app-article [article]="article" (likePost)="handleReceiveLike($event)"></app-article>
-    }
-} @empty {
-    <p>Aucun article publié pour le moment</p>
-}
+<app-article-list></app-article-list>
