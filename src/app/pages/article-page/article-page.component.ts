@@ -4,6 +4,7 @@ import { Article } from '../../../models/article.model';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { ApiService } from '../../services/api.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-article-page',
@@ -15,6 +16,7 @@ import { ApiService } from '../../services/api.service';
 export class ArticlePageComponent {
   route: ActivatedRoute = inject(ActivatedRoute);
   private apiService = inject(ApiService);
+  private articleSubscription! : Subscription;
   
   articleId!: number;
   article! : Article;
@@ -24,10 +26,14 @@ export class ArticlePageComponent {
       this.articleId = Number(params.get('id'));
     });
 
-    this.apiService.getArticleById(this.articleId).subscribe({
+    this.articleSubscription = this.apiService.getArticleById(this.articleId).subscribe({
       next: data => this.article = data,
       error : error => console.log("Erreur", error)
-    });;
+    });
+  }
+
+  ngOnDestroy() {
+    this.articleSubscription.unsubscribe();
   }
 
   handleClickLike() {
@@ -37,4 +43,5 @@ export class ArticlePageComponent {
   togglePublication() {
     this.article.isPublished = !this.article.isPublished;
   }
+
 }
