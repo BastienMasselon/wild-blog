@@ -3,7 +3,7 @@ import { ActivatedRoute, ParamMap, RouterLink } from '@angular/router';
 import { Article } from '../../../models/article.model';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { ApiService } from '../../services/api.service';
+import { ApiService } from '../../../services/api.service';
 import { Subscription } from 'rxjs';
 
 @Component({

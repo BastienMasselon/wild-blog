@@ -4,7 +4,7 @@ import { Observable } from 'rxjs';
 import { ArticleComponent } from '../article/article.component';
 import { Like } from '../../../models/like.models';
 import { AsyncPipe } from '@angular/common';
-import { ApiService } from '../../services/api.service';
+import { ApiService } from '../../../services/api.service';
 
 @Component({
   selector: 'app-article-list',
