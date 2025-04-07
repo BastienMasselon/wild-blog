@@ -4,10 +4,12 @@ import { ArticlePageComponent } from './pages/article-page/article-page.componen
 import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { SignupFormComponent } from './pages/signup-form/signup-form.component';
 import { ContactFormComponent } from './pages/contact-form/contact-form.component';
-import { LoginFormComponent } from './pages/login-form/login-form.component';
+import { LoginFormComponent } from './components/login-form/login-form.component';
+import {LoginPageComponent} from "./pages/login-page/login-page.component";
+import {ProfilePageComponent} from "./pages/profile-page/profile-page.component";
 
 export const routes: Routes = [
-    
+
     {
         path: 'article/:id',
         component: ArticlePageComponent
@@ -22,7 +24,11 @@ export const routes: Routes = [
     },
     {
         path: 'login',
-        component: LoginFormComponent
+        component: LoginPageComponent
+    },
+    {
+      path: 'profile',
+      component: ProfilePageComponent
     },
     {
         path: '',
@@ -32,5 +38,5 @@ export const routes: Routes = [
         path: '**',
         component: NotFoundComponent
     },
-    
+
 ];
