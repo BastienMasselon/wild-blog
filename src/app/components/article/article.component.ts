@@ -18,6 +18,10 @@ export class ArticleComponent {
 
   @Output() likePost: EventEmitter<Like> = new EventEmitter<Like>();
 
+  ngOnInit() {
+    console.log(this.article);
+  }
+
   isArticleLiked : boolean = false;
 
   handleClickLike(): void {
@@ -27,7 +31,7 @@ export class ArticleComponent {
       liked: this.isArticleLiked
     });
   }
-  
+
   togglePublication(): void {
     this.article.isPublished = !this.article.isPublished;
   }

@@ -7,9 +7,9 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class ApiService {
-  apiUrl = 'http://localhost:3000/articles';
+  apiUrl = 'http://localhost:8080/articles';
 
-  private http = inject(HttpClient);
+  private readonly http = inject(HttpClient);
 
   getArticles() : Observable<Article[]> {
     return this.http.get<Article[]>(this.apiUrl);
