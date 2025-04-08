@@ -3,11 +3,20 @@
         <nav class="nav">
             <li><a [routerLink]="'/'">Accueil</a></li>
             <li><a [routerLink]="'/contact'">Contact</a></li>
+          @if (authService.getUserRole() === 'ROLE_ADMIN') {
+            <li><a [routerLink]="'/admin'">Admin Dashboard</a></li>
+          }
+          @if (authService.isLoggedIn()) {
+            <li><a [routerLink]="'/profile'">Profile</a></li>
+            <li><button (click)="logout()" (keyup)="logout()" >me déconnecter</button></li>
+          } @else {
             <li><a [routerLink]="'/signup'">Inscription</a></li>
             <li><a [routerLink]="'/login'">Login</a></li>
+          }
+
         </nav>
 
-        <div class="burger" (click)="toggleMenu()">
+        <div class="burger" (click)="toggleMenu()" (keyup)="toggleMenu()">
             <div></div>
             <div></div>
             <div></div>

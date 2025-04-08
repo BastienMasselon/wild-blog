@@ -2,6 +2,7 @@ import {inject, Injectable} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {Observable, tap} from "rxjs";
 import {jwtDecode} from "jwt-decode";
+import {Router} from "@angular/router";
 
 @Injectable({
   providedIn: 'root'
@@ -9,6 +10,7 @@ import {jwtDecode} from "jwt-decode";
 export class AuthService {
   private readonly apiUrl = 'http://localhost:8080';
   private readonly http = inject((HttpClient));
+  private readonly router = inject(Router);
 
   login(email: string, password: string): Observable<string> {
     return this.http
@@ -18,6 +20,11 @@ export class AuthService {
           this.saveToken(token);
         })
       );
+  }
+
+  logout(): void {
+    this.clearToken();
+    this.router.navigate(['/login']);
   }
 
   saveToken(token: string): void {
@@ -30,6 +37,17 @@ export class AuthService {
 
   clearToken(): void {
     localStorage.removeItem('token');
+  }
+
+  getUserRole(): string | null {
+      const token = this.getToken();
+      if (!token) return null;
+      try {
+        const decodedToken: any = jwtDecode(token);
+        return decodedToken.roles?.[0].authority || null;
+      } catch {
+        return null;
+      }
   }
 
   verifyToken(): void {

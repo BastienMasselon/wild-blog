@@ -21,7 +21,6 @@ export class LoginFormComponent {
   }
 
   onSubmit(form: NgForm ) {
-    console.log('login');
     if (form.valid) {
       this.authService.login(this.user.email, this.user.password).subscribe({
         next: () => this.router.navigate(['/profile']),
