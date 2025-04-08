@@ -1,10 +1,10 @@
 import { Component, inject } from '@angular/core';
 import { Article } from '../../../models/article.model';
 import { Observable } from 'rxjs';
-import { HttpClient } from '@angular/common/http';
 import { ArticleComponent } from '../article/article.component';
 import { Like } from '../../../models/like.models';
 import { AsyncPipe } from '@angular/common';
+import { ApiService } from '../../../services/api.service';
 
 @Component({
   selector: 'app-article-list',
@@ -15,11 +15,11 @@ import { AsyncPipe } from '@angular/common';
 })
 export class ArticleListComponent {
   articles$!: Observable<Article[]>;
-  http = inject(HttpClient);
+  private apiService = inject(ApiService);
   likedArticle!: number;
 
   ngOnInit() {
-    this.articles$ = this.http.get<Article[]>('http://localhost:3000/articles');
+    this.articles$ = this.apiService.getArticles();
   }
 
   handleReceiveLike(like: Like) {
