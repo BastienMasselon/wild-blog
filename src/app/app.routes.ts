@@ -7,6 +7,7 @@ import { ContactFormComponent } from './pages/contact-form/contact-form.componen
 import { LoginFormComponent } from './components/login-form/login-form.component';
 import {LoginPageComponent} from "./pages/login-page/login-page.component";
 import {ProfilePageComponent} from "./pages/profile-page/profile-page.component";
+import {AuthGuard} from "./guards/auth.guard";
 
 export const routes: Routes = [
 
@@ -28,7 +29,8 @@ export const routes: Routes = [
     },
     {
       path: 'profile',
-      component: ProfilePageComponent
+      component: ProfilePageComponent,
+      canActivate: [AuthGuard]
     },
     {
         path: '',
