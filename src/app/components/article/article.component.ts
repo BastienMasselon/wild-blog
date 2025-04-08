@@ -18,10 +18,6 @@ export class ArticleComponent {
 
   @Output() likePost: EventEmitter<Like> = new EventEmitter<Like>();
 
-  ngOnInit() {
-    console.log(this.article);
-  }
-
   isArticleLiked : boolean = false;
 
   handleClickLike(): void {

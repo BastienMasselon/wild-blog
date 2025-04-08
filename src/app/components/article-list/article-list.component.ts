@@ -20,10 +20,6 @@ export class ArticleListComponent {
 
   ngOnInit() {
     this.articles$ = this.apiService.getArticles();
-    console.log(this.articles$);
-    this.apiService.getArticles().subscribe((response) => {
-      console.log(response);
-    })
   }
 
   handleReceiveLike(like: Like) {
