@@ -19,6 +19,10 @@ export class HeaderComponent {
     burger?.classList.toggle('burger-active');
   }
 
+  get isAdmin(): boolean {
+    return this.authService.getUserRole()?.some((role: any) => role.authority === 'ROLE_ADMIN') ?? false;
+  }
+
   logout(): void {
     this.authService.logout();
   }

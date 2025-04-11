@@ -39,12 +39,12 @@ export class AuthService {
     localStorage.removeItem('token');
   }
 
-  getUserRole(): string | null {
+  getUserRole(): string[] | null {
       const token = this.getToken();
       if (!token) return null;
       try {
         const decodedToken: any = jwtDecode(token);
-        return decodedToken.roles?.[0].authority || null;
+        return decodedToken.roles || null;
       } catch {
         return null;
       }

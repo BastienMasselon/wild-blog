@@ -3,7 +3,7 @@
         <nav class="nav">
             <li><a [routerLink]="'/'">Accueil</a></li>
             <li><a [routerLink]="'/contact'">Contact</a></li>
-          @if (authService.getUserRole() === 'ROLE_ADMIN') {
+          @if (isAdmin) {
             <li><a [routerLink]="'/admin'">Admin Dashboard</a></li>
           }
           @if (authService.isLoggedIn()) {
