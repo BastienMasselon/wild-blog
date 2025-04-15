@@ -27,7 +27,7 @@ export class ArticleComponent {
       liked: this.isArticleLiked
     });
   }
-  
+
   togglePublication(): void {
     this.article.isPublished = !this.article.isPublished;
   }

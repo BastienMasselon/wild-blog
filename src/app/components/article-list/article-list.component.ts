@@ -15,7 +15,7 @@ import { ApiService } from '../../../services/api.service';
 })
 export class ArticleListComponent {
   articles$!: Observable<Article[]>;
-  private apiService = inject(ApiService);
+  private readonly apiService = inject(ApiService);
   likedArticle!: number;
 
   ngOnInit() {

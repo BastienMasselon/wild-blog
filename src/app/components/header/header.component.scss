@@ -37,7 +37,6 @@ header {
     margin: 0 auto;
 
     li {
-      display: inline-block;
       height: 100%;
       display: flex;
       justify-content: center;
@@ -56,6 +55,18 @@ header {
         &:hover {
           background-color: lighten($color-main, 10%);
         }
+      }
+    }
+
+    button {
+      padding: 0.5em;
+      background-color: white;
+      border-radius: 5px;
+      font-size: 1.05rem;
+
+      &:hover {
+        background-color: #cdcbcb;
+        cursor: pointer;
       }
     }
   }

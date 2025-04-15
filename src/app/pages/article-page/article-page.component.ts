@@ -15,9 +15,9 @@ import { Subscription } from 'rxjs';
 })
 export class ArticlePageComponent {
   route: ActivatedRoute = inject(ActivatedRoute);
-  private apiService = inject(ApiService);
+  private readonly apiService = inject(ApiService);
   private articleSubscription! : Subscription;
-  
+
   articleId!: number;
   article! : Article;
 

@@ -1,7 +1,7 @@
 <p [hidden]="likedArticle === undefined" >article n°{{likedArticle}} liké</p>
 
 @for (article of articles$ | async; track article.id) {
-    @if (article.isPublished) {
+    @if (true) {
         <app-article [article]="article" (likePost)="handleReceiveLike($event)"></app-article>
     }
 } @empty {
