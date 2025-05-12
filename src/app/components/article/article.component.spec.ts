@@ -1,6 +1,8 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ArticleComponent } from './article.component';
+import { provideRouter } from '@angular/router';
+import { articleForTests } from '../../../data/articleTest';
 
 describe('ArticleComponent', () => {
   let component: ArticleComponent;
@@ -8,7 +10,8 @@ describe('ArticleComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [ArticleComponent]
+      imports: [ArticleComponent],
+      providers: [provideRouter([])]
     })
     .compileComponents();
 
@@ -20,4 +23,12 @@ describe('ArticleComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should display the input article object', () => {
+    component.article = articleForTests;
+
+    fixture.detectChanges();
+    const compiled = fixture.nativeElement;
+    expect(compiled.querySelector('.post__category p').textContent).toContain('catégorie de test');
+  })
 });
