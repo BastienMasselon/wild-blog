@@ -31,4 +31,18 @@ describe('ArticleComponent', () => {
     const compiled = fixture.nativeElement;
     expect(compiled.querySelector('.post__category p').textContent).toContain('catégorie de test');
   })
+
+  it('should emit an event when like button is clicked', () => {
+    component.article = articleForTests;
+    spyOn(component.likePost, 'emit');
+    fixture.detectChanges();
+
+    const button = fixture.nativeElement.querySelector('button.post__like-btn');
+
+    button.click();
+    expect(component.likePost.emit).toHaveBeenCalledWith({
+      articleId: 1,
+      liked: true
+    })
+  })
 });
